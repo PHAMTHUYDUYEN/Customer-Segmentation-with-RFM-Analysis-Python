@@ -1,9 +1,9 @@
 # [Python] Customer Segmentation with RFM Analysis
 ## **I. INTRODUCTION**
+In this project, **_Python_** techniques **_(Pandas, NumPy, Seaborn)_** and **_RFM Analysis_** were utilized to **_segment customers_** of a bicycle manufacturer into 11 pre-defined groups. Then, based on the **_company’s customer situation_**, **_3 key customer segments_** that required focused actions were identified, and **_tailored marketing campaigns_** were suggested for each key group, which was **_strategically calculated_** from the **_segment’s purchase behavior_** and **_pricing data_**. This project aimed to enhance the **_effectiveness_** of the **_Marketing team’s campaigns_**.
+
 ### 1. BUSINESS QUESTIONS
 SuperStore, a global retail company, plans to launch marketing campaigns for the holiday season to reward loyal customers and target potential ones. Due to the large volume of data, manual customer segmentation is no longer feasible. The Marketing Director proposed using the RFM model, and the Data Analytics team has been asked to automate this process using Python.
-
-This project utilizes Python to segment customers, providing insights into the characteristics of each segment and offering actionable recommendations for the Marketing team to tailor their campaigns effectively.
 
 ### 2. DATASET
 Dataset used (as attachment) is a transnational dataset which contains all the transactions occurring between 01/12/2010 and 09/12/2011 for a UK-based and registered non-store online retail. The company mainly sells unique all-occasion gifts. Many customers of the company are wholesalers.
@@ -33,7 +33,7 @@ Dataset used (as attachment) is a transnational dataset which contains all the t
 - In RFM analysis, customers are scored based on three factors (Recency - how recently, Frequency - how often, Monetary - how much), then labeled (segmented) based on the combination of RFM scores
 
 ## **II. DATA PREPARATION (EDA)**
-In this data preparation stage, we will check for missing values, duplicates, and incorrect data types/data values to make sure the dataset is clean and ready for further analysis.
+In this data preparation stage, we will check for **_missing values, duplicates,_** and **_incorrect data types/data values_** to make sure the dataset is **_clean_** and **_ready_** for further analysis.
 ### 1. CHECKING
 ```Python
 # Checking for Missing Values
@@ -103,7 +103,7 @@ calculation.head()
 |12350.0	|2011-02-02 16:01:00	|2011-12-31	|-332 days +16:01:00	|1	|334.40|
 
 ### 2. RANKING
-Quintiles were used to assign scores to each RFM component of each customer. Then all separated R,F,M score were concated into 1 RFM score, which is foundation for segmentation stage and further analysis.
+**_Quintiles_** were used to **_assign scores_** to each RFM component of each customer. Then all separated R,F,M score were **_concated into 1 RFM score_**, which is foundation for segmentation stage and further analysis.
 ```Python
 # Rank order of data to define cut point
 orderFrequency = calculation["Frequency"].rank(method='first')
@@ -128,7 +128,7 @@ calculation.head()
 |12350.0	|2011-02-02 16:01:00	|2011-12-31	|-332 days +16:01:00	|1	|334.40|1|	1|	2|	112|
 
 ### 3. SEGMENTATION
-Segment customers of SuperStore based on 11 pre-defined groups.
+Segment customers of SuperStore based on **_11 pre-defined groups._**
 ```Python
 # Convert comma-separated string to a list of RFM scores
 segmentation["RFM Score"] = segmentation["RFM Score"].str.split(",")
@@ -232,21 +232,21 @@ Theoretically, there are 11 customer groups, each with characteristics and marke
 ### 2. SUPERSTORE'S SITUATION 
 However, we need to base on SuperStore's customer segments status to have a tailored marketing strategy. SuperStore's situation as below:
 - Currently,
-  - ~20% of the company’s customers belong to the Champions group (the most loyal and highest-spending customers).
-  - Another ~20% fall into the Loyal and Potential Loyalist groups.
-  - These 3 groups collectively generate the majority of the company’s revenue (~76%).
+  - **_~20%_** of the company’s customers belong to the **_Champions_** group (the most loyal and highest-spending customers).
+  - Another **_~20%_** fall into the **_Loyal_** and **_Potential Loyalist_** groups.
+  - These **_3 groups_** collectively generate the **_majority_** of the company’s **_revenue_** **_(~76%)_**.
 - However,
-  - 1/3 of customers are at risk of leaving (Hibernating Customers, Lost Customers, About to Sleep).
-  - Around 18% of customers, classified as Need Attention, At Risk, and Cannot Lose Them, are also at risk if no action is taken.
-- Meanwhile, potential new customers account for only ~10% in terms of numbers, contributing just 2% of total revenue.
+  - **_1/3_** of customers are **_at risk of leaving_** (Hibernating Customers, Lost Customers, About to Sleep).
+  - Around **_18%_** of customers, classified as Need Attention, At Risk, and Cannot Lose Them, are also **_at risk if no action is taken_**.
+- Meanwhile, **_potential new customers_** account for **_only ~10%_** in terms of numbers, contributing **_just 2%_** of total revenue.
 
 ### 3. PROPOSED MARKETING STRATEGY
 Given the situation of SuperStore, the marketing team should focus on 3 main strategies:
 |Group|	Strategy|
 |:---:|---|
-|Champions, Loyal, Potential Loyalist<br>`40% of customers` & `76% of revenue`|Maintain and upsell to generate even higher revenue.|
-|Hibernate, Lost, About to Sleep<br>`34% of customers`|Launch a special promotion to encourage these customers to make 1 purchase again as soon as possible.|
-|Need Attention, At Risk, Cannot Lose Them<br>`18% of customers` & `16% of revenue`|Investigate the reasons for disengagement and create tailored solutions to win them back (instead of letting them completely churn).|
+|Champions, Loyal, Potential Loyalist<br>`40% of customers` & `76% of revenue`|**_Maintain_** and **_upsell_** to generate even **_higher revenue_**.|
+|Hibernate, Lost, About to Sleep<br>`34% of customers`|Launch a special **_promotion_** to encourage these customers to make **_1 purchase again as soon as possible_**.|
+|Need Attention, At Risk, Cannot Lose Them<br>`18% of customers` & `16% of revenue`|Investigate the **_reasons for disengagement_** and create **_corrective solutions_** to win them back (instead of letting them completely churn).|
 
 ### 4. PROPOSED MARKETING ACTIONS
 Detailed Actions are suggested as below: 
@@ -255,11 +255,11 @@ Detailed Actions are suggested as below:
 
 _a. Actions for Champions:_
 - **Retention:**
-  - Enhance customer service with loyalty programs, including special promotions and offers to show appreciation and accumulate points.
-  - Focus on efficient customer support, ensuring prompt handling of inquiries, exchanges, and warranties.
+  - Enhance **_customer service_** with **_loyalty programs_**, including special promotions and offers to show appreciation and accumulate points.
+  - Focus on efficient **_customer support_**, ensuring **_prompt handling_** of inquiries, exchanges, and warranties.
 
 - **Increase Revenue:**
-  - Promote higher-value "you-may-also-like" products or product combos based on the following criteria:<br>(1) Items with a value greater than the average of those previously purchased by the Champions group.<br>(2) Products that rank among the top purchases frequently made by Champions.
+  - Promote higher-value **_"you-may-also-like" products_** or **_product combos_** based on the following criteria:<br>(1) Items with a **_price_** > **_average price of items previously purchased by Champions_**.<br>(2) Products that **_among top frequent purchase made by Champions_**.
 
   - Top 10 items met (1) & (2) criteria:
     ```Python
@@ -303,10 +303,10 @@ _a. Actions for Champions:_
     |9|	JAM MAKING SET WITH JARS	|439	|4.191253|
       
 _b. Actions for Loyal & Potential Loyalist:_
-- Offer promotions and incentives tied to specific spending thresholds for this group.
+- Offer promotions and **_incentives_** tied to specific **_spending thresholds_** for this group.
 - Example:
-  - **Tier 1**: Offer a free gift for transactions with a value > Average Order Value of the Loyal and Potential Loyalist group.  
-    - Average order value of this group: `$377`
+  - **Tier 1**: Offer a **_free gift_** for transactions with a **_value_** > **_Average Order Value**_ of the Loyal and Potential Loyalist group.  
+    - **_Average order value of this group_**: `$377`
       
      ```Python
      # Find customers in Loyal & Potential Loyalist segment
@@ -327,8 +327,8 @@ _b. Actions for Loyal & Potential Loyalist:_
      377.22777710843366
      ```
       
-  - **Tier 2**: Provide a higher-value free gift for transactions > Company's Average Order Value.  
-    - Company's Average Order Value: `$534`
+  - **Tier 2**: Provide a higher-value free gift for **_transactions_** > **_Company's Average Order Value_**.  
+    - _**Company's Average Order Value**_: `$534`
     
     ```Python
     # Find the value of all delivered invoices
@@ -343,7 +343,7 @@ _b. Actions for Loyal & Potential Loyalist:_
     ```
 
 ***4.2. Hibernate Customer, Lost Customer, About to sleep***
-- The company needs to incentivize this group of customers to make another purchase as soon as possible through short-term retargeting campaigns, such as vouchers, discounts, or exclusive special offers.
+- The company needs to **_incentivize_** this group of customers to **_make another purchase as soon as possible_** through **_short-term retargeting campaigns_**, such as vouchers, discounts, or exclusive special offers.
 
 ***4.3. Need Attention, At risk, Cannot lose them***
-- Instead of defaulting to broad discount and promotional campaigns to attract this group back, which may waste the company's budget, it is crucial to conduct surveys to identify the root causes of why these customers are not returning. Addressing these issues is key, as the reasons for their disengagement may stem from product quality, customer service quality, etc., rather than just pricing.
+- Instead of defaulting to broad discount and promotional campaigns to attract this group back, which may waste the company's budget, it is crucial to conduct **_surveys_** to **_identify the root causes_** of why these customers are not returning. **_Addressing these issues_** is key, as the reasons for their disengagement may stem from product quality, customer service quality, etc., rather than just pricing.
