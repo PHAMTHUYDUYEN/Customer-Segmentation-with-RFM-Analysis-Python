@@ -6,7 +6,7 @@ In this project, **_Python_** techniques **_(Pandas, NumPy, Seaborn)_** and **_R
 SuperStore, a global retail company, plans to launch marketing campaigns for the holiday season to reward loyal customers and target potential ones. Due to the large volume of data, manual customer segmentation is no longer feasible. The Marketing Director proposed using the RFM model, and the Data Analytics team has been asked to automate this process using Python.
 
 ### 2. DATASET
-Dataset used (as attachment) is a transnational dataset which contains all the transactions occurring between 01/12/2010 and 09/12/2011 for a UK-based and registered non-store online retail. The company mainly sells unique all-occasion gifts. Many customers of the company are wholesalers.
+Dataset used (as attachment) is a transnational dataset which contains all the transactions occurring between 01/12/2010 and 09/12/2011 for a UK-based and registered non-store online retail.
 
 |Field Name| Detail|
 |---|---|
